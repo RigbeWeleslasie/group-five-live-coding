@@ -1,0 +1,5 @@
+Input =List of Invigilators,List of Exams, List of facilities, List of revision time and list of subjects need special needs
+
+1 create a function schedule exam that has a parameter exams, availableinvigilator, special needs,hasconflicts,availablefacililities,enoughrevisiontime
+initialize an empty list called shedule list
+
