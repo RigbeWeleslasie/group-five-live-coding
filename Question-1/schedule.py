@@ -2,6 +2,7 @@
 # # #  provides aduquate revision time between tests, and utilizes available school 
 # # # facilities efficiently. This system must consider the specific needs of different subjects, 
 # # # the availability of exam invigilators, and special accommodation requirements for certain students.
+
 scheduling_system=[]
 
 def has_conflict(student_ids,current_exam):
@@ -37,8 +38,8 @@ def check_invigilator_availability(invigilator_id,day,start_time,end_time):
                 return False
     return True
 def scheduling_system(subject, student_ids, facility_id, invigilator_id, day, start_time, end_time):
-    current_exam = {"subject": subject,"students": student_ids,"facility": facility_id,"invigilator": invigilator_id,"day": day,"start_time": start_time,
-    "end_time": end_time
+    current_exam = {"subject": subject,"students": student_ids,"facility": facility_id,"invigilator": invigilator_id,"day": day,
+    "start_time": start_time,"end_time": end_time
     }
 
      for student_id in student_ids:
