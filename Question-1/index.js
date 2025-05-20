@@ -79,7 +79,7 @@ function scheduleExams() {
     if (examsToSchedule.length > 0) {
         console.log("Could not schedule the following exams:", examsToSchedule);
     } else {
-        console.log("All exams scheduled successfully!");
+        console.log("All exams scheduled correctly");
     }
 }
 function applySpecialAccommodations() {
@@ -99,7 +99,6 @@ function applySpecialAccommodations() {
 }
 scheduleExams();
 applySpecialAccommodations();
-console.log("\nFinal Exam Schedule:");
 schedule.forEach(sch => {
     console.log(`${sch.day} ${sch.slot}: ${sch.exam.subject} in ${sch.facility.id}, invigilated by ${sch.invigilator.name}`);
 });
