@@ -62,6 +62,7 @@ def scheduling_system(subject, student_ids, facility_id, invigilator_id, day, st
          Scheduling_system.append(current_exam)
          print("scheduled successfully!")
          return True 
+         
 
 students = [{"id": 1, "name": "Alice"},{"id": 2, "name": "Bob"}]
 
