@@ -15,7 +15,7 @@ const facilities = [
     { id: "AnitaB", type: "lab", capacity: 20, available: true }
 ];
 const invigilators = [
-    { id: 1, name: "Mrs.Hunter", availability: ["Monday", "Tuesday", "Wednesday"], expertise: "written", assigned: [] },
+    { id: 1, name: "Ms.Hunter", availability: ["Monday", "Tuesday", "Wednesday"], expertise: "written", assigned: [] },
     { id: 2, name: "Ms. Sharon", availability: ["Tuesday", "Wednesday", "Thursday"], expertise: "practical", assigned: [] }
 ];
 const examDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
