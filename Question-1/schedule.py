@@ -39,7 +39,7 @@ def check_invigilator_availability(invigilator_id,day,start_time,end_time):
     return True
 def scheduling_system(subject, student_ids, facility_id, invigilator_id, day, start_time, end_time):
     current_exam = {"subject": subject,"students": student_ids,"facility": facility_id,"invigilator": invigilator_id,"day": day,
-    "start_time": start_time,"end_time": end_time
+    "start_time": start_time, add"end_time": end_time
     }
 
      for student_id in student_ids:
@@ -59,7 +59,6 @@ def scheduling_system(subject, student_ids, facility_id, invigilator_id, day, st
         if not check_invigilator_availability(invigilator_id,day,end_time,start_time):
             print(f"Invigilator not available")
             return False 
-
          Scheduling_system.append(current_exam)
          print("scheduled successfully!")
          return True 
