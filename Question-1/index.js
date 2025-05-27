@@ -101,5 +101,16 @@ applySpecialAccommodations();
 schedule.forEach(sch => {
     console.log(`${sch.day} ${sch.slot}: ${sch.exam.subject} in ${sch.facility.id}, invigilated by ${sch.invigilator.name}`);
 });
-
-
+ 
+const usr={
+    name:'Jen',
+    age:22
+};
+const user={
+    name:"Andrew",
+    location:"Philadephia"
+};
+const a={...usr};
+console.log(a);
+const merged={...usr,...user}
+console.log(merged)
