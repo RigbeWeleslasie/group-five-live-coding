@@ -89,7 +89,6 @@ class ExamScheduler(
             if (currentTime > endTime) break
         }
     }
-
     fun printSchedule() {
         for (exam in scheduledExams) {
             println("Exam: ${exam.subject} at ${exam.time} in ${exam.room.name} with ${exam.invigilator.name}, duration: ${exam.durationMinutes} min")
