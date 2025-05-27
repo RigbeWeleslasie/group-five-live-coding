@@ -22,25 +22,23 @@ const examDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 const slotsPerDay = ["Morning", "Afternoon"];
 let schedule = [];
 function hasStudentConflict(studentId, day, slot) {
-    return schedule.some(sch => 
-        sch.day === day && 
-        sch.slot === slot && 
-        sch.exam.students.includes(studentId)
+    return schedule.some(sch =>
+        sch.day === day && sch.slot === slot && sch.exam.students.includes(studentId)
     );
 }
 function hasEnoughRevisionTime(studentId, indexOfDay, examDays) {
     const prevDay = examDays[indexOfDay - 1];
     const nextDay = examDays[indexOfDay + 1];
-    const hasExamPrevDay = prevDay && schedule.some(sch => 
+    const hasExamPrevDay = prevDay && schedule.some(sch =>
         sch.day === prevDay && sch.exam.students.includes(studentId)
     );
-    const hasExamNextDay = nextDay && schedule.some(sch=> 
+    const hasExamNextDay = nextDay && schedule.some(sch =>
         sch.day === nextDay && sch.exam.students.includes(studentId)
     );
     return !(hasExamPrevDay && hasExamNextDay);
 }
 function findAvailableFacility(exam, day, slot) {
-    return facilities.find(faci=> 
+    return facilities.find(faci =>
         faci.type === exam.resource &&
         faci.available &&
         !schedule.some(sch => sch.day === day && sch.slot === slot && sch.facility.id === faci.id
@@ -48,7 +46,7 @@ function findAvailableFacility(exam, day, slot) {
     );
 }
 function findAvailableInvigilator(exam, day) {
-    return invigilators.find(i =>  i.availability.includes(day) && i.expertise === exam.type &&!i.assigned.includes(day)
+    return invigilators.find(i => i.availability.includes(day) && i.expertise === exam.type && !i.assigned.includes(day)
     );
 }
 function scheduleExams() {
@@ -58,26 +56,27 @@ function scheduleExams() {
         for (let slot of slotsPerDay) {
             for (let i = 0; i < examsToSchedule.length; i++) {
                 const exam = examsToSchedule[i];
-                const hasConflict = exam.students.some(studentId => 
+                const hasConflict = exam.students.some(studentId =>
                     hasStudentConflict(studentId, day, slot)
                 );
-                const hasRevisionTime = exam.students.every(studentId => 
+                const hasRevisionTime = exam.students.every(studentId =>
                     hasEnoughRevisionTime(studentId, indexOfDay, examDays)
                 );
                 const facility = findAvailableFacility(exam, day, slot);
-                const invigilator = findAvailableInvigilator(exam, day); 
+                const invigilator = findAvailableInvigilator(exam, day);
                 if (!hasConflict && hasRevisionTime && facility && invigilator) {
-                    schedule.push({ day, slot, exam, facility, invigilator
-                    }); 
+                    schedule.push({
+                        day, slot, exam, facility, invigilator
+                    });
                     invigilator.assigned.push(day);
                     examsToSchedule.splice(i, 1);
-                    i--; 
+                    i--;
                 }
             }
         }
     }
     if (examsToSchedule.length > 0) {
-        console.log("Could not schedule the following exams:", examsToSchedule);
+        console.log( examsToSchedule);
     } else {
         console.log("All exams scheduled correctly");
     }
@@ -86,9 +85,9 @@ function applySpecialAccommodations() {
     schedule.forEach(sch => {
         const examStudents = sch.exam.students;
         examStudents.forEach(studentId => {
-            const student = students.find(st => st.id === studentId);
+            const student = students.find(student => student.id === studentId);
             if (student.specialRequirements === "extraTime") {
-                sch.exam.duration += 0.5; 
+                sch.exam.duration += 0.5;
                 console.log(`Added extra time for ${student.name} in ${sch.exam.subject}`);
             } else if (student.specialRequirements === "separateRoom") {
                 sch.facility = { ...sch.facility, id: `${sch.facility.id}-Separate` };
@@ -102,3 +101,16 @@ applySpecialAccommodations();
 schedule.forEach(sch => {
     console.log(`${sch.day} ${sch.slot}: ${sch.exam.subject} in ${sch.facility.id}, invigilated by ${sch.invigilator.name}`);
 });
+ 
+const usr={
+    name:'Jen',
+    age:22
+};
+const user={
+    name:"Andrew",
+    location:"Philadephia"
+};
+const a={...usr};
+console.log(a);
+const merged={...usr,...user}
+console.log(merged)
